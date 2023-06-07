@@ -6,7 +6,7 @@ using UnityEngine;
 public class Rain : MonoBehaviour
 {
 
-    public Light light;
+    public Light lightDir;
 
     private ParticleSystem _ps;
     private bool _isRain = false;
@@ -17,15 +17,15 @@ public class Rain : MonoBehaviour
     }
 
     private void Update() {
-        if (_isRain && light.intensity > 0.25f) {
+        if (_isRain && lightDir.intensity > 0.25f) {
             LightInensity(-1);
-        } else if (!_isRain && light.intensity < 0.5f) {
+        } else if (!_isRain && lightDir.intensity < 0.5f) {
             LightInensity(1);
         }
     }
 
     private void LightInensity(int mult) {
-        light.intensity += 0.1f * Time.deltaTime * mult;
+        lightDir.intensity += 0.1f * Time.deltaTime * mult;
     }
 
     IEnumerator Weather() {

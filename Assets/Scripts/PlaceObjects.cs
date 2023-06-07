@@ -24,6 +24,10 @@ public class PlaceObjects : MonoBehaviour
         }
 
         if (Input.GetMouseButtonDown(0)) {
+            if (gameObject.GetComponent<SpawnUnit>()) {
+                gameObject.GetComponent<SpawnUnit>().enabled = true;
+            }
+            
             Destroy(gameObject.GetComponent<PlaceObjects>());
         }
     }
